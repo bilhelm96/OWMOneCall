@@ -1,0 +1,26 @@
+{
+    "name": "OWMOneCall",
+    "keywords": "json, http, web, weather",
+    "description": "A simple library for getting weather data from OpenWeatherMap via the One Call 3.0 API",
+    "authors":
+    {
+        "name": "Bill Wilhelm",
+        "maintainer": "true"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bilhelm96/OWMOneCall.git"
+    },
+    "version": "0.1",
+    "license": "MIT",
+    "frameworks": "arduino",
+    "platforms": "*",
+    "dependancies": [
+        {
+            "owner": "bblanchon",
+            "name": "ArduinoJson",
+            "version": "6.19.4",
+            "platforms": "*"
+        }
+    ]
+}
