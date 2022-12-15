@@ -168,8 +168,13 @@ private:
     // Latitute and longiture to check the weather for
     float _lat;
     float _lon;
+    
 
-    // Max values set in constructor
+    // OWMO One Call provides Minute forecasts for the next 60 Minutes
+    // Hourly forecasts for the next 48 hours
+    // Daily forecasts for the next 8 days
+    // These are check variables set in the constructor confirm the user does not 
+    // request more than the max amount of forecasts returned by the API
     uint8_t _maxMinRpts;  // 60
     uint8_t _maxHrRpts;   // 48
     uint8_t _maxDlyRpts;  // 8
@@ -213,7 +218,7 @@ public:
     bool getWeather();
     
     // Variables to store forecast data 
-    // Minute, Hour, and Daily are pointers to dynamically set size based on user quatity filter
+    // Minute, Hour, and Daily are pointers to dynamically set size based on user quantity filter
     currentWeather currWx;
     minuteWeather *minWx;
     hourlyWeather *hrWx;

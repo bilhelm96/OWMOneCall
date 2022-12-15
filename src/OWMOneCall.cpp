@@ -39,6 +39,7 @@
 
 OWMOneCall::OWMOneCall()
 {
+  // Set check variables to the max number of forecasts returned by the API
   _maxMinRpts = 60;
   _maxHrRpts = 48;
   _maxDlyRpts = 8;
