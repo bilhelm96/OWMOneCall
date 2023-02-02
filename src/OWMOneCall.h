@@ -223,6 +223,8 @@ public:
     minuteWeather *minWx;
     hourlyWeather *hrWx;
     dailyWeather *dlyWx;
+    String timeZone;
+    int32_t timeZoneOffset;
 
 };
 
