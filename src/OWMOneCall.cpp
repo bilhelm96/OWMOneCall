@@ -218,7 +218,7 @@ bool OWMOneCall::getWeather() {
         DeserializationError wxError = deserializeJson(wxData, payload);
         if (!wxError) {
           // Store Timezone Info
-          timeZone = wxData["timesone"];
+          timeZone = wxData["timezone"].as<String>();
           timeZoneOffset = wxData["timezone_offset"];
           
           // Store Current Weather
