@@ -11,7 +11,7 @@ OWMUnits units = IMPERIAL;
 // Replace with your network information and API key
 const char* ssid = "YOUR_SSID";
 const char* password = "YOUR_PW";
-const char* API_KEY = YOUR_API_KEY";
+const char* API_KEY = "YOUR_API_KEY";
 
 // Which and number of forecasts to store - 0 to disable
 // Max: current: 1, minute: 60, hour: 48, daily: 8
