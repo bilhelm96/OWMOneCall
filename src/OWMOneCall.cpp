@@ -4,13 +4,14 @@
 
   The One Call API can return the current forecast, minute by minute for 60 minutes, hourly for 48 hours,
   and daily forecasts for 8 days.  Utilizes ArduinoJson (https://arduinojson.org) to process the API return
-  and populate data structures
+  and populate data structures.  
+  Version 1.2.0 and higher require ArduionJSON version 7 and up
 
   Alert reports are not implemented
   
   Released under the MIT License
   
-  Copyright ©2022 William A. Wilhelm
+  Copyright ©2022 - 2004 William A. Wilhelm
   
   Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
   and associated documentation files (the "Software"), to deal in the Software without restriction, 
@@ -58,16 +59,16 @@ void OWMOneCall::begin(String apiKey, uint8_t cur, uint8_t min, uint8_t hr, uint
     _apiKey = apiKey;
 
     if (cur > 0) {
-      _currentSize = 511;
+      _currentSize = 511;  // Not needed with ArduinoJSON v7
       _currentRpt = true;
     }
     else {
-      _currentSize = 0;
+      _currentSize = 0;  // Not needed with ArduinoJSON v7
       _currentRpt = false;
     }
     
     if (min > 0) {
-      _minuteSize = 2970;
+      _minuteSize = 2970;  // Not needed with ArduinoJSON v7
       if (min > _maxMinRpts) {
         _numMinRpts = _maxMinRpts;
       } else {
@@ -75,11 +76,11 @@ void OWMOneCall::begin(String apiKey, uint8_t cur, uint8_t min, uint8_t hr, uint
       }
       minWx = new minuteWeather[_numMinRpts];
     } else {
-      _minuteSize = 0;
+      _minuteSize = 0;  // Not needed with ArduinoJSON v7
     }
 
     if (hr > 0) {
-      _hourSize = 16479;
+      _hourSize = 16479;  // Not needed with ArduinoJSON v7
       if (hr > _maxHrRpts) {
         _numHrRpts = _maxHrRpts;
       } else {
@@ -87,11 +88,11 @@ void OWMOneCall::begin(String apiKey, uint8_t cur, uint8_t min, uint8_t hr, uint
       }
       hrWx = new hourlyWeather[_numHrRpts];
     } else {
-      _hourSize = 0;
+      _hourSize = 0;  // Not needed with ArduinoJSON v7
     }
 
     if (dly > 0) {
-      _dailySize = 4815;
+      _dailySize = 4815;  // Not needed with ArduinoJSON v7
       if (dly > _maxDlyRpts) {
         _numDlyRpts = _maxDlyRpts;
       } else {
@@ -99,7 +100,7 @@ void OWMOneCall::begin(String apiKey, uint8_t cur, uint8_t min, uint8_t hr, uint
       }
       dlyWx = new dailyWeather[_numDlyRpts];
     } else {
-      _dailySize = 0;
+      _dailySize = 0;  // Not needed with ArduinoJSON v7
     }
 
     #ifdef DEBUG
@@ -142,7 +143,7 @@ void OWMOneCall::setLocation(float latitude, float longitude) {
   #endif
 }
 
-uint16_t OWMOneCall::getJsonSize() {
+uint16_t OWMOneCall::getJsonSize() {  // Not needed with ArduinoJSON v7
     uint16_t size;
 
     size = _positionSize + _currentSize + _minuteSize + _hourSize + _dailySize;
@@ -203,9 +204,9 @@ bool OWMOneCall::getWeather() {
   #ifdef DEBUG
     Serial.println(apiCall);
   #endif
-  uint16_t jsonSize = getJsonSize();
+  uint16_t jsonSize = getJsonSize();  // Not needed with ArduinoJSON v7
   HTTPClient http;
-  DynamicJsonDocument wxData(jsonSize);
+  JsonDocument wxData;
 
   http.begin(apiCall);
   uint16_t httpCode = http.GET();

@@ -186,12 +186,14 @@ private:
     uint8_t _numDlyRpts;
 
     // Sizing for the JSON file to parse the API response - Sizes from ArduinoJson assistant (https://arduinojson.org/v6/assistant/#/step1)
+    // Not needed with Arduino JSON v7 to be depricated
     uint16_t _currentSize;  // min 511, recommended 768
     uint16_t _minuteSize;   // min 2970, recommended 3072
     uint16_t _hourSize;     // min 16479, recommded 24576
     uint16_t _dailySize;    // min 4815, recommended 6144
     static const uint16_t _positionSize = 114;  // Header (lat, long, timezone) min size 114, recommended 128
     
+    // Not needed with Arduino JSON v7 to be depricated
     // Fucntoin to calulate JSON Deserialization file size. Adds minimums and rounds up to the next higher power of 2 for margin
     uint16_t getJsonSize();  // Total file min size 24614, recommended 32768
 

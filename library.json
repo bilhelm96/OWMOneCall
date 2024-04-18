@@ -11,7 +11,7 @@
         "type": "git",
         "url": "https://github.com/bilhelm96/OWMOneCall"
     },
-    "version": "1.1.1",
+    "version": "1.2.0",
     "license": "MIT",
     "frameworks": "arduino",
     "platforms": "*",
@@ -19,7 +19,7 @@
         {
             "owner": "bblanchon",
             "name": "ArduinoJson",
-            "version": "6.19.4",
+            "version": "7.0.4",
             "platforms": "*"
         }
     ]
